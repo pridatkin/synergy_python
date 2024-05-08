@@ -1,0 +1,6 @@
+p1 = input("What is the name of the first stage of human development? ")
+p2 = input("What is the name of the second stage of human development? ")
+p3 = input("What is the name of the third stage of human development? ")
+p4 = input("What is the name of the fourth stage of human development? ")
+p5 = input("What is the name of the fifер stage of human development? ")
+print(p1,p2,p3,p4,p5,sep = '=>')
