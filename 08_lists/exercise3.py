@@ -13,7 +13,7 @@ for i in range(n):
 weight.sort()
 
 while len(weight) != 0:
-	if (weight[0] + weight[-1]) <= m:
+	if len(weight) > 1 and (weight[0] + weight[-1]) <= m:
 		weight.pop(0)
 	counter += 1
 	weight.pop()
