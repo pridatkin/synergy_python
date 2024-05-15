@@ -11,7 +11,7 @@ pets[name] = {
 }
 
 year = 'лет'
-if pets[name]['age'] % 10 == 1 and age % 100 != 11:
+if age % 10 == 1 and age % 100 != 11:
 	year = 'год'
 elif 1 < age % 10 < 5 and age != 12 and age != 13 and age != 14:
 	year = 'года'
