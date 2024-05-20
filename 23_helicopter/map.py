@@ -26,7 +26,9 @@ class Map:
 		self.generate_hospital()
 
 	def print_map(self, helico, clouds):
+		print('🟫' * (self.w + 2))
 		for ri in range(self.h):
+			print('🟫', end = '')
 			for ci in range(self.w):
 				cell = self.cells[ri][ci]
 				if clouds.cells[ri][ci] == 1:
@@ -38,7 +40,8 @@ class Map:
 					print('🚁', end = '')
 				elif cell >= 0 and cell < len(CELL_TYPES):
 					print(CELL_TYPES[cell], end = '')
-			print()
+			print('🟫')
+		print('🟫' * (self.w + 2))
 
 	def check_bounds(self, x, y):
 		if x < 0 or y < 0 or x >= self.h or y >= self.w:

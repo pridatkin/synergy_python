@@ -9,19 +9,20 @@ import os
 TICK_SLEEP = 0.1
 TREE_UPDATE = 50
 CLOUDS_UPDATE = 100
-FIRE_UPDATE = 100
+FIRE_UPDATE = 50
 MAP_W, MAP_H = 20, 10
 
 field = Map(MAP_W, MAP_H)
 clouds = Clouds(MAP_W, MAP_H)
 helico = Helicopter(MAP_W, MAP_H)
 tick = 1
+exit_game = False
 
 MOVES = {'w': (-1, 0), 'd': (0, 1), 's': (1, 0), 'a': (0, -1)}
 # f - сохранение, g - восстановление
 
 def process_key(key):
-	global helico, clouds, field, tick
+	global helico, clouds, field, tick, exit_game
 	try:
 		c = key.char.lower()
 		if c in MOVES.keys():
@@ -47,7 +48,8 @@ def process_key(key):
 				pass
 
 	except AttributeError:
-		pass
+		if key == keyboard.Key.esc:
+			exit_game = True
     #print('{0} released'.format(
     #    key))
     #if key == keyboard.Key.esc:
@@ -58,7 +60,7 @@ listener = keyboard.Listener(
     on_release=process_key)
 listener.start()
 
-while True:
+while exit_game == False:
 	os.system("clear") #cls for Windows
 	print("TICK", tick)
 	field.process_helicopter(helico, clouds)
@@ -72,3 +74,4 @@ while True:
 		field.update_fires()
 	if tick % CLOUDS_UPDATE == 0:
 		clouds.update()
+

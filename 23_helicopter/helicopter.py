@@ -32,7 +32,7 @@ class Helicopter:
 		print("*                               *")
 		print("*********************************")
 		exit(0)
-
+	
 	def export_data(self):
 		return {'score': self.score,
 				'lives': self.lives,
