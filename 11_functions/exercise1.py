@@ -6,7 +6,9 @@ def fact(n):
 
 n = int(input("Enter the value: "))
 l = []
-for i in range(n, 0, -1):
+f = fact(n)
+for i in range(f, 0, -1):
 	l.append(fact(i))
 
+print(f)
 print(l)
